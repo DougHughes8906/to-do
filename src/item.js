@@ -1,10 +1,15 @@
 
-const Item = () => {
+const Item = (creationOrder) => {
 	let title = 'New item';
 	let description = '';
 	let dueDate = '';	
 	let priority = 1;
 	let complete = false;
+	// for use by a project object to track the order in which this
+	// item was created among all items in the project
+	let order = creationOrder;
+
+	// minimum and maximum priorities for any item
 	const minPriority = 1;
 	const maxPriority = 10;
 
@@ -77,9 +82,13 @@ const Item = () => {
 		return complete;
 	}
 
+	const getOrder = () => {
+		return order;
+	}
+
 	return {changeTitle, changeDesc, changeDueDate, changePriority, setComplete, 
 		setIncomplete, getTitle, getDescription, getDueDate, getPriority, 
-		isComplete}
+		isComplete, getOrder}
 };
 
 
