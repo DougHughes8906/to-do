@@ -1,4 +1,5 @@
 import completeMsg from './completeMsg';
+import setupPage from './pageFrame';
 
 function completeElem(taskName) {
 
@@ -9,4 +10,5 @@ function completeElem(taskName) {
 	return element;
 }
 
-document.body.appendChild(completeElem('Test'));
+// set up the outer frame for the page
+setupPage();
