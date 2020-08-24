@@ -12,6 +12,9 @@ const setupPage = () => {
 	// set up nav bar
 	let navDiv = document.createElement('div');
 	navDiv.classList.add('Nav');
+
+	let empDiv = document.createElement('div');
+	navDiv.appendChild(empDiv);
 	
 	let homeDiv = document.createElement('div');
 	homeDiv.appendChild(document.createTextNode('Home'));
@@ -24,6 +27,9 @@ const setupPage = () => {
 	let newProjDiv = document.createElement('div');
 	newProjDiv.appendChild(document.createTextNode('New Project'));
 	navDiv.appendChild(newProjDiv);
+
+	let empDiv2 = document.createElement('div');
+	navDiv.appendChild(empDiv2);
 
 	body.appendChild(navDiv);
 

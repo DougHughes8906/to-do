@@ -1,4 +1,17 @@
 
+body {
+	margin: 0px;
+}
+
 h1 {
 	text-align: center;
 }
+
+.Nav {
+	display: grid;
+	grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+	justify-items: center;
+	align-items: center;	
+}
+
+

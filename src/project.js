@@ -4,6 +4,13 @@ import Item from './item'
 const Project = () => {
 
 	let itemList = [];
+
+	// set to true once all tasks have been completed. If there
+	// are no tasks then this is set to true
+	let complete = false;
+
+	// tracks the number of completed items
+	let numComplete = 0;
 	
 	const addItem = () => {	
 		itemList.push(Item());
@@ -17,6 +24,48 @@ const Project = () => {
 			itemList.splice(itemIndex, 1);
 		}
 	};
+
+	const completeItem = (itemIndex) => {
+		if (itemIndex < 0 || itemIndex >= itemList.length) {
+			console.log(`Index ${itemIndex} is not a valid index of the item list`);
+		}
+		else {
+			// check to see if it was already completed
+			if (!itemList[itemIndex].isComplete()) {
+				itemList[itemIndex].setComplete();
+				numComplete++;
+			
+				// check to see if all items have been completed
+				if (numComplete === itemList.length) {
+					complete = true;
+				}
+			}		
+		}
+	}
+
+	const incompleteItem = (itemIndex) => {
+		if (itemIndex < 0 || itemIndex >= itemList.length) {
+			console.log(`Index ${itemIndex} is not a valid index of the item list`);
+		}
+		else {
+			// check to see if it is already set to incomplete
+			if (itemList[itemIndex].isComplete()) {
+				itemList[itemIndex].setIncomplete();
+				numComplete--;
+			
+				// check to see if project was previously set to complete
+				if (complete) {
+					complete = false;
+				}
+			}		
+		}
+	}
+
+	// checks to see if all of the items in the project have been 
+	// completed
+	const isComplete = () => {
+		return complete;
+	}
 
 	const sortBy = (sortType) => {
 		if (sortType === 'title') {
@@ -93,8 +142,9 @@ const Project = () => {
 		return itemList;
 	};
 
-	return {addItem, removeItem, sortBy, filterByComplete, 
-		filterByIncomplete, getItemList};
+	
+	return {addItem, removeItem, completeItem, incompleteItem, isComplete, 
+		sortBy, filterByComplete, filterByIncomplete, getItemList};
 };
 
 export default Project
