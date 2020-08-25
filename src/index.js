@@ -2,15 +2,7 @@ import completeMsg from './completeMsg';
 import setupPage from './pageFrame';
 import getStoredContent from './getStoredContent'
 import Profile from './profile'
-
-function completeElem(taskName) {
-
-	let element = document.createElement('div');
-
-	element.innerHTML = completeMsg(taskName);
-
-	return element;
-}
+import displayProject from './displayProject'
 
 // get the previously saved content (if any)
 let userProfile = getStoredContent();
@@ -25,3 +17,5 @@ if (userProfile === null) {
 // set up the outer frame for the page
 setupPage();
 
+// add the home project to the page
+displayProject(userProfile.getProject(userProfile.getHomeIndex()));

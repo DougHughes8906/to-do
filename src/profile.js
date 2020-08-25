@@ -19,7 +19,7 @@ const Profile = () => {
 
 	const removeProject = (index) => {
 		if (index < 0 || index >= projectList.length) {
-			console.log(`Index ${newIndex} is not a valid index of the project list`);
+			console.log(`Index ${index} is not a valid index of the project list`);
 		}
 		else {
 			projectList.splice(index, 1);
@@ -38,8 +38,17 @@ const Profile = () => {
 			homeIndex = newIndex;
 		}
 	};
+
+	const getProject = (index) => {
+		if (index < 0 || index >= projectList.length) {
+			console.log(`Index ${index} is not a valid index of the project list`);
+		}
+		else {
+			return projectList[index];
+		}
+	}
 		
-	return {addProject, removeProject, getHomeIndex, setHomeIndex};
+	return {addProject, removeProject, getHomeIndex, setHomeIndex, getProject};
 };
 
 export default Profile

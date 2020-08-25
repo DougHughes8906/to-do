@@ -11,6 +11,8 @@ const Project = () => {
 
 	// tracks the number of completed items
 	let numComplete = 0;
+
+	let projectTitle = 'New Project';
 	
 	const addItem = () => {	
 		itemList.push(Item());
@@ -136,15 +138,32 @@ const Project = () => {
 
 	const filterByIncomplete = () => {
 		return itemList.filter(item => !(item.isComplete()));
+	};	
+
+	const getTitle = () => {
+		return projectTitle;
 	};
 
-	const getItemList = () => {
-		return itemList;
+	const changeTitle = (newTitle) => {
+		projectTitle = newTitle;
 	};
 
+	const getItem = (index) => {
+		if (index < 0 || index >= itemList.length) {
+			console.log(`Index ${index} is not a valid index of the item list`);
+		}
+		else {
+			return itemList[index];
+		}
+	};
+
+	const getNumItems = () => {
+		return itemList.length;
+	};
 	
 	return {addItem, removeItem, completeItem, incompleteItem, isComplete, 
-		sortBy, filterByComplete, filterByIncomplete, getItemList};
+		sortBy, filterByComplete, filterByIncomplete, getTitle,
+		changeTitle, getItem, getNumItems};
 };
 
 export default Project
