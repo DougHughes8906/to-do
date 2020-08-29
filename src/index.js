@@ -17,5 +17,18 @@ if (userProfile === null) {
 // set up the outer frame for the page
 setupPage();
 
+// get the home project
+let homeProject = userProfile.getProject(userProfile.getHomeIndex());
+
+// add a test item to the project
+homeProject.addItem();
+
+let testItem = homeProject.getItem(0);
+
+testItem.changeTitle("Test");
+testItem.changeDesc("Hi this is a test");
+testItem.changeDueDate("Friday");
+testItem.changePriority(6);
+
 // add the home project to the page
-displayProject(userProfile.getProject(userProfile.getHomeIndex()));
+displayProject(homeProject);

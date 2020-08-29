@@ -13,9 +13,13 @@ const Project = () => {
 	let numComplete = 0;
 
 	let projectTitle = 'New Project';
+
+	// used to track the order of creation for items
+	let createCount = 0;
 	
 	const addItem = () => {	
-		itemList.push(Item());
+		itemList.push(Item(createCount));
+		createCount++;
 	};
 
 	const removeItem = (itemIndex) => {
