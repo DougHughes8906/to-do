@@ -30,5 +30,12 @@ testItem.changeDesc("Hi this is a test");
 testItem.changeDueDate("Friday");
 testItem.changePriority(6);
 
+// add another test item
+homeProject.addItem();
+
+let secItem = homeProject.getItem(1);
+
+secItem.changeTitle("Second Item");
+
 // add the home project to the page
 displayProject(homeProject);

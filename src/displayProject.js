@@ -29,39 +29,22 @@ const displayProject = (proj) => {
 		let curItem = proj.getItem(i);
 
 		let itemDiv = document.createElement('div');
+		itemDiv.classList.add('itemContainer');
 
+		// add a checkbox for the item
+		let itemCheckDiv = document.createElement('div');
+		let itemCheckbox = document.createElement('input');
+		itemCheckbox.setAttribute('type', 'checkbox');
+		itemCheckDiv.appendChild(itemCheckbox);
+		
+		itemDiv.appendChild(itemCheckDiv);
+
+		// add the title for the item
 		let itemTitleDiv = document.createElement('div');
 		itemTitleDiv.appendChild(document.createTextNode(curItem.getTitle()));
 
-		itemDiv.appendChild(itemTitleDiv);
-	
-		let itemDescDiv = document.createElement('div');
-		itemDescDiv.appendChild(document.createTextNode(curItem.getDescription()));
-
-		itemDiv.appendChild(itemDescDiv);
-
-		let itemDueDateDiv = document.createElement('div');
-		itemDueDateDiv.appendChild(document.createTextNode(curItem.getDueDate()));
-
-		itemDiv.appendChild(itemDueDateDiv); 
-
-		let itemPriorityDiv = document.createElement('div');
-		let prioString = (curItem.getPriority()).toString();
-		itemPriorityDiv.appendChild(document.createTextNode(prioString));
-
-		itemDiv.appendChild(itemPriorityDiv); 
-
-		let itemCompleteDiv = document.createElement('div');
-		if (curItem.isComplete()) {
-			itemCompleteDiv.appendChild(document.createTextNode('Complete'));
-		}
-		else {
-			itemCompleteDiv.appendChild(document.createTextNode('Not Complete'));
-		}	
-
-		itemDiv.appendChild(itemCompleteDiv);
-	
-
+		itemDiv.appendChild(itemTitleDiv);	
+		
 		// add the itemDiv to the itemContainer
 		itemContainer.appendChild(itemDiv);
 	}	
