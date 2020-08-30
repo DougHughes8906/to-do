@@ -3,6 +3,7 @@ import setupPage from './pageFrame';
 import getStoredContent from './getStoredContent'
 import Profile from './profile'
 import displayProject from './displayProject'
+import addEventDelegator from './addEventDelegator'
 
 // get the previously saved content (if any)
 let userProfile = getStoredContent();
@@ -39,3 +40,6 @@ secItem.changeTitle("Second Item");
 
 // add the home project to the page
 displayProject(homeProject);
+
+// add the event delegator
+addEventDelegator(userProfile);

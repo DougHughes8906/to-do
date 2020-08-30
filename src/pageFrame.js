@@ -33,6 +33,19 @@ const setupPage = () => {
 
 	body.appendChild(navDiv);
 
+	// set up div that will be used for the pop-up window to add / update
+	// items
+	let modalElem = document.createElement('div');
+	modalElem.classList.add('modal');
+	let modalCont = document.createElement('div');
+	modalCont.classList.add('modal-content');
+	let modalText = document.createElement('p');
+	modalText.appendChild(document.createTextNode('Testing'));
+	modalCont.appendChild(modalText);
+	modalElem.appendChild(modalCont);
+
+	body.appendChild(modalElem);
+
 	// set up div that will hold task list content
 	let contentDiv = document.createElement('div');
 	contentDiv.classList.add('Content');

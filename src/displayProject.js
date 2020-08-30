@@ -1,5 +1,3 @@
-// not sure if this line is necessary: import Project from './project'
-
 // adds the project data to the page
 
 const displayProject = (proj) => {
@@ -42,12 +40,21 @@ const displayProject = (proj) => {
 		// add the title for the item
 		let itemTitleDiv = document.createElement('div');
 		itemTitleDiv.appendChild(document.createTextNode(curItem.getTitle()));
+		itemTitleDiv.id = 'item' + i;
 
 		itemDiv.appendChild(itemTitleDiv);	
 		
 		// add the itemDiv to the itemContainer
 		itemContainer.appendChild(itemDiv);
 	}	
+
+	// add the add item div to the itemContainer
+	let addItem = document.createElement('div');
+	addItem.appendChild(document.createTextNode('+ Add Item'));
+	addItem.classList.add('openAddItem');
+	itemContainer.appendChild(addItem);
+
+	itemContainer.classList.add('itemsDiv');
 
 	// add the itemContainer to the Content div
 	contentDiv.appendChild(itemContainer);
