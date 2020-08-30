@@ -39,9 +39,23 @@ const setupPage = () => {
 	modalElem.classList.add('modal');
 	let modalCont = document.createElement('div');
 	modalCont.classList.add('modal-content');
-	let modalText = document.createElement('p');
-	modalText.appendChild(document.createTextNode('Testing'));
-	modalCont.appendChild(modalText);
+
+	let modalForm = document.createElement('div');
+	let titleSpan = document.createElement('span');
+	titleSpan.appendChild(document.createTextNode('Item Title: '));
+	modalForm.appendChild(titleSpan);
+	let titleInput = document.createElement('input');
+	titleInput.type = 'text';
+	titleInput.id = 'itemTitleInput';
+	modalForm.appendChild(titleInput);
+
+	let itemButton = document.createElement('div');
+	itemButton.appendChild(document.createTextNode('Add Item'));
+	itemButton.id = 'addItem';
+	modalForm.appendChild(itemButton);
+
+	modalCont.appendChild(modalForm);
+	
 	modalElem.appendChild(modalCont);
 
 	body.appendChild(modalElem);

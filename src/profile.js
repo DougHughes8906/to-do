@@ -67,7 +67,7 @@ const Profile = () => {
 
 	const getSelection = () => {
 		if (selectedIndex !== -1) {
-			return projectList[selectIndex];
+			return projectList[selectedIndex];
 		}
 	}
 

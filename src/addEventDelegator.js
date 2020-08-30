@@ -1,5 +1,7 @@
 import displayProject from './displayProject'
 import {openItemModal, closeItemModal} from './modals'
+import saveItemInput from './saveItemInput'
+import clearItemInputs from './clearItemInputs'
 
 // adds the listening functionality for all events on the page
 
@@ -27,7 +29,19 @@ const addEventDelegator = (profile) => {
 		}
 
 		// user finished entering information in add item modal
-		if (event.target.matches('.addItem')) {
+		if (event.target.matches('#addItem')) {
+
+			// create a new item for the project
+			let curProj = profile.getSelection(); 
+			curProj.addItem();
+
+			let newItem = curProj.getItem(curProj.getNumItems() - 1);
+	
+			// save the inputs to the new item
+			saveItemInput(newItem);
+
+			// clear the input fields
+			clearItemInputs();
 
 			closeItemModal();
 
@@ -56,6 +70,7 @@ const addEventDelegator = (profile) => {
 		// user closed item modal by clicking on the background when the modal
 		// was opened
 		if (event.target.matches('.modal')) {	
+			clearItemInputs();
 			closeItemModal();
 		}
 
