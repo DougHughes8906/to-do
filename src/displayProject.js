@@ -13,6 +13,7 @@ const displayProject = (proj) => {
 	// add the title for the project to the page
 	let titleElem = document.createElement('h2');
 	titleElem.appendChild(document.createTextNode(proj.getTitle()));
+	titleElem.id = 'projTitle';
 
 	contentDiv.appendChild(titleElem);	
 

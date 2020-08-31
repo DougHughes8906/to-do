@@ -23,6 +23,10 @@ const Profile = () => {
 	// holds true if an item is currently being updated
 	let updateItemStatus = false;
 
+	// holds true if the currently selected project title is being 
+	// edited
+	let projTitleStatus = false;
+
 	const addProject = () => {
 		projectList.push(Project());
 		if (projectList.length === 1) {
@@ -106,10 +110,19 @@ const Profile = () => {
 	const getUpdateItem = () => {
 		return updateItemStatus;
 	}	
+
+	const projTitleActive = () => {
+		return projTitleStatus;
+	}
+
+	const setProjTitleActive = () => {
+		projTitleStatus = !projTitleStatus;
+	}
 	
 	return {addProject, removeProject, getHomeIndex, setHomeIndex, getProject,
 		selectProject, getSelection, selectItem, getItemSelection, setAddItem,
-		getAddItem, setUpdateItem, getUpdateItem};
+		getAddItem, setUpdateItem, getUpdateItem, projTitleActive, 
+		setProjTitleActive};
 };
 
 export default Profile
