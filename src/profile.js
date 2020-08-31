@@ -17,6 +17,12 @@ const Profile = () => {
 	// window must be opened)
 	let itemIndex = -1;
 
+	// holds true if an item is currently being added 
+	let addItemStatus = false;
+
+	// holds true if an item is currently being updated
+	let updateItemStatus = false;
+
 	const addProject = () => {
 		projectList.push(Project());
 		if (projectList.length === 1) {
@@ -84,9 +90,26 @@ const Profile = () => {
 		let curProj = getSelection();
 		return curProj.getItem(itemIndex);
 	}
-		
+
+	const setAddItem = () => {
+		addItemStatus = !addItemStatus;
+	}
+
+	const getAddItem = () => {
+		return addItemStatus;
+	}
+
+	const setUpdateItem = () => {
+		updateItemStatus = !updateItemStatus;
+	}
+
+	const getUpdateItem = () => {
+		return updateItemStatus;
+	}	
+	
 	return {addProject, removeProject, getHomeIndex, setHomeIndex, getProject,
-		selectProject, getSelection, selectItem, getItemSelection};
+		selectProject, getSelection, selectItem, getItemSelection, setAddItem,
+		getAddItem, setUpdateItem, getUpdateItem};
 };
 
 export default Profile

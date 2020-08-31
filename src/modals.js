@@ -6,6 +6,8 @@ const openItemModal = (item) => {
 	let modalElem = document.getElementsByClassName('modal')[0];
 	// make the modal visible
 	modalElem.style.display = 'block';
+	// give focus to the title input
+	(document.getElementById('itemTitleInput')).focus();
 };
 
 // closes the item modal 

@@ -2,6 +2,7 @@ import displayProject from './displayProject'
 import {openItemModal, closeItemModal} from './modals'
 import saveItemInput from './saveItemInput'
 import clearItemInputs from './clearItemInputs'
+import {updateItemInfo, addItemInfo} from './enterItemInfo'
 
 // adds the listening functionality for all events on the page
 
@@ -12,8 +13,10 @@ const addEventDelegator = (profile) => {
 
 		// user wants to add a new item to the project
 		if (event.target.matches('.openAddItem')) {
+			// indicate that an item is being added
+			profile.setAddItem();
 			// open modal window to add the item
-			openItemModal();
+			openItemModal();	
 		}
 
 		// user wants to update an existing item in the project
@@ -24,26 +27,20 @@ const addEventDelegator = (profile) => {
 			itemId = parseInt(itemId.slice(4));
 
 			profile.selectItem(itemId);
-		
+	
+			// indicate that an item is being edited
+			profile.setUpdateItem();
+	
 			openItemModal(profile.getItemSelection());	
 		}
 
 		// user finished entering information in add item modal
 		if (event.target.matches('#addItem')) {
 
-			// create a new item for the project
-			let curProj = profile.getSelection(); 
-			curProj.addItem();
+			addItemInfo(profile);	
 
-			let newItem = curProj.getItem(curProj.getNumItems() - 1);
-	
-			// save the inputs to the new item
-			saveItemInput(newItem);
-
-			// clear the input fields
-			clearItemInputs();
-
-			closeItemModal();
+			// indicate that an item is done being edited
+			profile.setAddItem();
 
 			// display the updated project
 			displayProject(profile.getSelection());
@@ -55,7 +52,10 @@ const addEventDelegator = (profile) => {
 			// get the item selected	
 			let curItem = profile.getItemSelection();
 
-			closeItemModal();
+			updateItemInfo(curItem);	
+
+			// indicate that an item is done being edited
+			profile.setUpdateItem();
 
 			// display the updated project
 			displayProject(profile.getSelection());
@@ -63,17 +63,48 @@ const addEventDelegator = (profile) => {
 
 		// user closed the item modal without adding or updating
 		// an item
-		if (event.target.matches('.closeItemModal')) {
-			closeItemModal();
-		}
-
-		// user closed item modal by clicking on the background when the modal
-		// was opened
-		if (event.target.matches('.modal')) {	
+		if (event.target.matches('.modal') || 
+			event.target.matches('.closeItemModal')) {
 			clearItemInputs();
+			if (profile.getAddItem()) {
+				profile.setAddItem();
+			}
+			else {
+				profile.setUpdateItem();
+			}
 			closeItemModal();
-		}
+		}	
 
+	}, false);
+
+	// listen for all key events
+	document.addEventListener('keypress', function (event) {
+		if (event.key === 'Enter') {
+			// check to see if an item is being added
+			if (profile.getAddItem()) {
+				addItemInfo(profile);	
+
+				// indicate that an item is done being edited
+				profile.setAddItem();
+
+				// display the updated project
+				displayProject(profile.getSelection());
+
+			}
+			// check to see if an item is being updated
+			else if (profile.getUpdateItem()) {
+				// get the item selected	
+				let curItem = profile.getItemSelection();
+
+				updateItemInfo(curItem);	
+
+				// indicate that an item is done being edited
+				profile.setUpdateItem();
+
+				// display the updated project
+				displayProject(profile.getSelection());
+			}
+		}
 	}, false);
 
 };
