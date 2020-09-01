@@ -33,6 +33,8 @@ const Profile = () => {
 			homeIndex = 0;
 			selectedIndex = 0;
 		}
+
+		return projectList[projectList.length - 1];
 	};
 
 	const removeProject = (index) => {

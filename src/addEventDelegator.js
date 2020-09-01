@@ -121,6 +121,13 @@ const addEventDelegator = (profile) => {
 		
 		}
 
+		// user is adding a new project
+		if (event.target.matches('.openAddProject')) {
+			let newProj = profile.addProject();
+			profile.selectProject(profile.getNumProjects() - 1);
+			displayProject(newProj);
+		}
+
 		// user navigated to the projects list page
 		if (event.target.matches('#NavProjects')) {
 			displayProjList(profile);
@@ -128,7 +135,8 @@ const addEventDelegator = (profile) => {
 
 		// user navigated to the home page
 		if (event.target.matches('#NavHome')) {
-			// get the home project
+			// display the home project
+			profile.selectProject(profile.getHomeIndex());	
 			let homeProj = profile.getSelection();
 			displayProject(homeProj);
 		}

@@ -29,6 +29,7 @@ const setupPage = () => {
 	let newProjDiv = document.createElement('div');
 	newProjDiv.appendChild(document.createTextNode('New Project'));
 	newProjDiv.id = 'NavNewProject';
+	newProjDiv.classList.add('openAddProject');
 	navDiv.appendChild(newProjDiv);
 
 	let empDiv2 = document.createElement('div');
