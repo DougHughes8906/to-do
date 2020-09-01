@@ -35,6 +35,7 @@ const displayProjList = (profile) => {
 		let projTitleDiv = document.createElement('div');
 		projTitleDiv.appendChild(document.createTextNode(curProj.getTitle()));
 		projTitleDiv.id = 'project' + i;
+		projTitleDiv.classList.add('projTitle');
 
 		projDiv.appendChild(projTitleDiv);	
 		

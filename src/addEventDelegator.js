@@ -121,6 +121,15 @@ const addEventDelegator = (profile) => {
 		
 		}
 
+		// user clicked to navigate to a project from the 
+		// Projects tab
+		if (event.target.matches('.projTitle')) {
+			// project ids are in the format 'projectXXXX'
+			let projIndex = parseInt((event.target.id).slice(7));
+			profile.selectProject(projIndex);
+			displayProject(profile.getSelection());
+		}
+
 		// user is adding a new project
 		if (event.target.matches('.openAddProject')) {
 			let newProj = profile.addProject();
