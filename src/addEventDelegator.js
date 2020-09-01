@@ -30,7 +30,7 @@ const addEventDelegator = (profile) => {
 		}
 
 		// user wants to update an existing item in the project
-		if (event.target.matches('.openUpdateItem')) {
+		if (event.target.matches('.itemTitle')) {
 			// get the index of the item within the project
 			let itemId = event.target.id;
 			// itemIds are in the format 'itemXXXX'

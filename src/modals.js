@@ -6,8 +6,19 @@ const openItemModal = (item) => {
 	let modalElem = document.getElementsByClassName('modal')[0];
 	// make the modal visible
 	modalElem.style.display = 'block';
+	let itemTitInput = document.getElementById('itemTitleInput');
+	let addBtn = document.getElementById('addItem');
+	// if an existing item was passed in, fill with the existing info
+	if (item !== undefined) {
+		itemTitInput.value = item.getTitle();
+		// change the text of the add button to read Update
+		addBtn.textContent = 'Update Item';	
+	}
+	else {
+		addBtn.textContent = 'Add Item';
+	}
 	// give focus to the title input
-	(document.getElementById('itemTitleInput')).focus();
+	itemTitInput.focus();
 };
 
 // closes the item modal 
