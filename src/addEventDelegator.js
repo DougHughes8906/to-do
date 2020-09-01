@@ -1,4 +1,5 @@
 import displayProject from './displayProject'
+import displayProjList from './displayProjList'
 import {openItemModal, closeItemModal} from './modals'
 import saveItemInput from './saveItemInput'
 import clearItemInputs from './clearItemInputs'
@@ -118,9 +119,23 @@ const addEventDelegator = (profile) => {
 			// indicate that the project title is actively being edited
 			profile.setProjTitleActive();
 		
+		}
+
+		// user navigated to the projects list page
+		if (event.target.matches('#NavProjects')) {
+			displayProjList(profile);
 		}	
 
+		// user navigated to the home page
+		if (event.target.matches('#NavHome')) {
+			// get the home project
+			let homeProj = profile.getSelection();
+			displayProject(homeProj);
+		}
+
 	}, false);
+
+
 
 	// listen for all key events
 	document.addEventListener('keypress', function (event) {

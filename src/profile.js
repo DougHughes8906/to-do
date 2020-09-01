@@ -118,11 +118,15 @@ const Profile = () => {
 	const setProjTitleActive = () => {
 		projTitleStatus = !projTitleStatus;
 	}
+
+	const getNumProjects = () => {
+		return projectList.length; 
+	}
 	
 	return {addProject, removeProject, getHomeIndex, setHomeIndex, getProject,
 		selectProject, getSelection, selectItem, getItemSelection, setAddItem,
 		getAddItem, setUpdateItem, getUpdateItem, projTitleActive, 
-		setProjTitleActive};
+		setProjTitleActive, getNumProjects};
 };
 
 export default Profile
