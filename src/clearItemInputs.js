@@ -8,6 +8,10 @@ const clearItemInputs = () => {
 	let titleInput = document.getElementById('itemTitleInput');
 	titleInput.value = '';
 
+	// get the description input
+	let descInput = document.getElementById('itemDescription');
+	descInput.value = '';
+
 }
 
 export default clearItemInputs

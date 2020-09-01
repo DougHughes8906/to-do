@@ -9,6 +9,10 @@ const saveItemInput = (item) => {
 	// set the new title for the item
 	item.changeTitle(titleInput.value);
 
+	// get the description input
+	let descInput = document.getElementById('itemDescription');
+	item.changeDesc(descInput.value);
+
 }
 
 export default saveItemInput

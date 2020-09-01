@@ -63,3 +63,10 @@ h1 {
 #addItem {
 	border: 1px solid black;
 }
+
+#itemDescription {
+	width: 80%;
+	height: 50px;
+	border: 1px solid black;
+	overflow: scroll;
+}

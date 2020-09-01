@@ -53,6 +53,14 @@ const setupPage = () => {
 	titleInput.id = 'itemTitleInput';
 	modalForm.appendChild(titleInput);
 
+	// add a text area for the item description
+	let descDiv = document.createElement('div');
+	descDiv.appendChild(document.createTextNode('Description:'));
+	let descText = document.createElement('textArea');
+	descText.id = 'itemDescription';
+	modalForm.appendChild(descDiv);
+	modalForm.appendChild(descText);
+
 	let itemButton = document.createElement('div');
 	itemButton.appendChild(document.createTextNode('Add Item'));
 	itemButton.id = 'addItem';

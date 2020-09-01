@@ -8,9 +8,12 @@ const openItemModal = (item) => {
 	modalElem.style.display = 'block';
 	let itemTitInput = document.getElementById('itemTitleInput');
 	let addBtn = document.getElementById('addItem');
+	let itemDescInput = document.getElementById('itemDescription');
+
 	// if an existing item was passed in, fill with the existing info
 	if (item !== undefined) {
 		itemTitInput.value = item.getTitle();
+		itemDescInput.value = item.getDescription();
 		// change the text of the add button to read Update
 		addBtn.textContent = 'Update Item';	
 	}
