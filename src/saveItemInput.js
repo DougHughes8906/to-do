@@ -13,6 +13,10 @@ const saveItemInput = (item) => {
 	let descInput = document.getElementById('itemDescription');
 	item.changeDesc(descInput.value);
 
+	// get the due date input
+	let dueDateInput = document.getElementById('dueDateInput');
+	item.changeDueDate(dueDateInput.value);
+
 }
 
 export default saveItemInput

@@ -9,11 +9,13 @@ const openItemModal = (item) => {
 	let itemTitInput = document.getElementById('itemTitleInput');
 	let addBtn = document.getElementById('addItem');
 	let itemDescInput = document.getElementById('itemDescription');
+	let dueDateInput = document.getElementById('dueDateInput');
 
 	// if an existing item was passed in, fill with the existing info
 	if (item !== undefined) {
 		itemTitInput.value = item.getTitle();
 		itemDescInput.value = item.getDescription();
+		dueDateInput.value = item.getDueDate();
 		// change the text of the add button to read Update
 		addBtn.textContent = 'Update Item';	
 	}

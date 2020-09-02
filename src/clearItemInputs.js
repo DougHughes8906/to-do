@@ -12,6 +12,10 @@ const clearItemInputs = () => {
 	let descInput = document.getElementById('itemDescription');
 	descInput.value = '';
 
+	// get the due date input
+	let dueDateInput = document.getElementById('dueDateInput');
+	dueDateInput.value = '';
+
 }
 
 export default clearItemInputs

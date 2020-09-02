@@ -61,6 +61,15 @@ const setupPage = () => {
 	modalForm.appendChild(descDiv);
 	modalForm.appendChild(descText);
 
+	// add an input area for the due date
+	let dueDateDiv = document.createElement('div');
+	dueDateDiv.appendChild(document.createTextNode('Due Date: '));
+	let dueDateInput = document.createElement('input');
+	dueDateInput.type = 'datetime-local';
+	dueDateInput.id = 'dueDateInput';
+	modalForm.appendChild(dueDateDiv);
+	modalForm.appendChild(dueDateInput);
+
 	let itemButton = document.createElement('div');
 	itemButton.appendChild(document.createTextNode('Add Item'));
 	itemButton.id = 'addItem';
