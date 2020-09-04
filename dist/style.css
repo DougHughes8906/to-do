@@ -75,3 +75,14 @@ h1 {
 	border: 1px solid black;
 }
 
+.Low {
+	background-color: green;
+}
+
+.Medium {
+	background-color: yellow;
+}
+
+.High {
+	background-color: red;
+}

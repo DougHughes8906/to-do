@@ -43,6 +43,9 @@ const displayProject = (proj) => {
 		itemTitleDiv.appendChild(document.createTextNode(curItem.getTitle()));
 		itemTitleDiv.id = 'item' + i;
 		itemTitleDiv.classList.add('itemTitle');
+		if (curItem.getPriority() !== '') {
+			itemTitleDiv.classList.add(curItem.getPriority());
+		}
 
 		itemDiv.appendChild(itemTitleDiv);	
 		
