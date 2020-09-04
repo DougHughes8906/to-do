@@ -16,6 +16,10 @@ const saveItemInput = (item) => {
 	// get the due date input
 	let dueDateInput = document.getElementById('dueDateInput');
 	item.changeDueDate(dueDateInput.value);
+	
+	// get the priority input
+	let priorityInput = document.getElementById('priorityInput');
+	item.changePriority(priorityInput.value);
 
 }
 

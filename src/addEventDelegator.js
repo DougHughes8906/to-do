@@ -45,30 +45,33 @@ const addEventDelegator = (profile) => {
 		}
 
 		// user finished entering information in add item modal
-		if (event.target.matches('#addItem')) {
+		if (event.target.matches('#addItem')) {	
 
-			addItemInfo(profile);	
+			// check to see if an item is being added
+			if (profile.getAddItem()) {
+				addItemInfo(profile);	
 
-			// indicate that an item is done being edited
-			profile.setAddItem();
+				// indicate that an item is done being edited
+				profile.setAddItem();
 
-			// display the updated project
-			displayProject(profile.getSelection());
-		}
+				// display the updated project
+				displayProject(profile.getSelection());
 
-		// user finished entering information in update item modal
-		if (event.target.matches('.updateItem')) {
+			}
 
-			// get the item selected	
-			let curItem = profile.getItemSelection();
+			// otherwise this must be an update to an existing item
+			else {
+				// get the item selected	
+				let curItem = profile.getItemSelection();
 
-			updateItemInfo(curItem);	
+				updateItemInfo(curItem);	
 
-			// indicate that an item is done being edited
-			profile.setUpdateItem();
+				// indicate that an item is done being edited
+				profile.setUpdateItem();
 
-			// display the updated project
-			displayProject(profile.getSelection());
+				// display the updated project
+				displayProject(profile.getSelection());
+			}
 		}
 
 		// user closed the item modal without adding or updating

@@ -10,6 +10,7 @@ const openItemModal = (item) => {
 	let addBtn = document.getElementById('addItem');
 	let itemDescInput = document.getElementById('itemDescription');
 	let dueDateInput = document.getElementById('dueDateInput');
+	let priorityInput = document.getElementById('priorityInput');
 
 	// if an existing item was passed in, fill with the existing info
 	if (item !== undefined) {
@@ -18,6 +19,17 @@ const openItemModal = (item) => {
 		dueDateInput.value = item.getDueDate();
 		// change the text of the add button to read Update
 		addBtn.textContent = 'Update Item';	
+		// get the selected priority option
+		let selectOptions = priorityInput.options;
+		let selIndex = -1;
+		let curInd = 0;	
+		while (selIndex === -1 && curInd < selectOptions.length) {	
+			if (selectOptions[curInd].value === item.getPriority()) {
+				selIndex = curInd;	
+			}
+			curInd++;
+		}
+		priorityInput.selectedIndex = selIndex;
 	}
 	else {
 		addBtn.textContent = 'Add Item';

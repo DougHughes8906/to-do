@@ -16,6 +16,10 @@ const clearItemInputs = () => {
 	let dueDateInput = document.getElementById('dueDateInput');
 	dueDateInput.value = '';
 
+	// get the priority input
+	let priorityInput = document.getElementById('priorityInput');
+	priorityInput.selectedIndex = 0;
+
 }
 
 export default clearItemInputs
