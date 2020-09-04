@@ -29,6 +29,27 @@ const addEventDelegator = (profile) => {
 			openItemModal();	
 		}
 
+		// user has clicked the check next to an item
+		if (event.target.matches('.itemCheck')) {
+			// get the index for the item
+			let itemId = event.target.id;
+			// the check ids are in the format 'checkXXXX'
+			itemId = parseInt(itemId.slice(5));
+
+			profile.selectItem(itemId);
+
+			let curItem = profile.getItemSelection();
+
+			if (event.target.checked) {
+				curItem.setComplete();
+			}
+			else {
+				curItem.setIncomplete();
+			}
+
+			displayProject(profile.getSelection());			
+		}
+
 		// user wants to update an existing item in the project
 		if (event.target.matches('.itemTitle')) {
 			// get the index of the item within the project

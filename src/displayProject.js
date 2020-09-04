@@ -34,12 +34,23 @@ const displayProject = (proj) => {
 		let itemCheckDiv = document.createElement('div');
 		let itemCheckbox = document.createElement('input');
 		itemCheckbox.setAttribute('type', 'checkbox');
+		itemCheckbox.classList.add('itemCheck');
+		itemCheckbox.id = 'check' + i;
+		if (curItem.isComplete()) {
+			itemCheckbox.checked = true;
+		}
 		itemCheckDiv.appendChild(itemCheckbox);
 		
 		itemDiv.appendChild(itemCheckDiv);
 
 		// add the title for the item
-		let itemTitleDiv = document.createElement('div');
+		let itemTitleDiv = null;
+		if (curItem.isComplete()) {
+			itemTitleDiv = document.createElement('strike');
+		}
+		else {
+			itemTitleDiv = document.createElement('div');
+		}
 		itemTitleDiv.appendChild(document.createTextNode(curItem.getTitle()));
 		itemTitleDiv.id = 'item' + i;
 		itemTitleDiv.classList.add('itemTitle');
