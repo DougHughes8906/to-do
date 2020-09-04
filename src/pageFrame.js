@@ -70,6 +70,38 @@ const setupPage = () => {
 	modalForm.appendChild(dueDateDiv);
 	modalForm.appendChild(dueDateInput);
 
+	// add an input area for the priority
+	let priorityDiv = document.createElement('div');
+	priorityDiv.appendChild(document.createTextNode('Set Priority: '));
+	let prioSelect = document.createElement('select');
+	prioSelect.id = 'priorityInput';
+
+	let defaultOption = document.createElement('option');
+	defaultOption.value = '';
+	defaultOption.appendChild(document.createTextNode(''));
+	prioSelect.appendChild(defaultOption);
+
+	let lowOption = document.createElement('option');
+	lowOption.value = 'Low';
+	lowOption.id = 'lowOption';
+	lowOption.appendChild(document.createTextNode('Low'));
+	prioSelect.appendChild(lowOption);
+
+	let mediumOption = document.createElement('option');
+	mediumOption.value = 'Medium';
+	mediumOption.id = 'mediumOption';
+	mediumOption.appendChild(document.createTextNode('Medium'));
+	prioSelect.appendChild(mediumOption);
+
+	let highOption = document.createElement('option');
+	highOption.value = 'High';
+	highOption.id = 'highOption';
+	highOption.appendChild(document.createTextNode('High'));
+	prioSelect.appendChild(highOption);
+
+	priorityDiv.appendChild(prioSelect);
+	modalForm.appendChild(priorityDiv);
+
 	let itemButton = document.createElement('div');
 	itemButton.appendChild(document.createTextNode('Add Item'));
 	itemButton.id = 'addItem';
