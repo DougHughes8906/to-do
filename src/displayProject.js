@@ -59,6 +59,14 @@ const displayProject = (proj) => {
 		}
 
 		itemDiv.appendChild(itemTitleDiv);	
+
+		// create the ability to delete an item if it is marked complete
+		if (curItem.isComplete()) {
+			let deleteBtn = document.createElement('span');
+			deleteBtn.appendChild(document.createTextNode('X'));
+			deleteBtn.classList.add('delete');
+			itemDiv.appendChild(deleteBtn);
+		}
 		
 		// add the itemDiv to the itemContainer
 		itemContainer.appendChild(itemDiv);
