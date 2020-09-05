@@ -65,6 +65,7 @@ const displayProject = (proj) => {
 			let deleteBtn = document.createElement('span');
 			deleteBtn.appendChild(document.createTextNode('X'));
 			deleteBtn.classList.add('delete');
+			deleteBtn.id = 'delete' + i;
 			itemDiv.appendChild(deleteBtn);
 		}
 		

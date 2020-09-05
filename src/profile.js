@@ -124,11 +124,15 @@ const Profile = () => {
 	const getNumProjects = () => {
 		return projectList.length; 
 	}
+
+	const removeItem = (index) => {
+		projectList[selectedIndex].removeItem(index);	
+	}
 	
 	return {addProject, removeProject, getHomeIndex, setHomeIndex, getProject,
 		selectProject, getSelection, selectItem, getItemSelection, setAddItem,
 		getAddItem, setUpdateItem, getUpdateItem, projTitleActive, 
-		setProjTitleActive, getNumProjects};
+		setProjTitleActive, getNumProjects, removeItem};
 };
 
 export default Profile

@@ -50,6 +50,18 @@ const addEventDelegator = (profile) => {
 			displayProject(profile.getSelection());			
 		}
 
+		// user is deleting an item
+		if (event.target.matches('.delete')) {
+			// get the index for the item
+			let itemId = event.target.id;
+			// the delete ids are in the format 'deleteXXXX'
+			itemId = parseInt(itemId.slice(6));
+
+			profile.removeItem(itemId);
+
+			displayProject(profile.getSelection());
+		}
+
 		// user wants to update an existing item in the project
 		if (event.target.matches('.itemTitle')) {
 			// get the index of the item within the project
