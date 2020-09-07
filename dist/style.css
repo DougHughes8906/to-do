@@ -96,3 +96,7 @@ h1 {
 	width: 20px;
 	border-radius: 7px;
 }
+
+#projTitleInput {
+	display: block;
+}
