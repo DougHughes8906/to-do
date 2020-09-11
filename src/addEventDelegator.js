@@ -186,6 +186,20 @@ const addEventDelegator = (profile) => {
 			displayProject(homeProj);
 		}
 
+		// user clicked the sort by priority (highest at top) button
+		if (event.target.matches('#sortUp')) {
+			profile.getSelection().sortBy('priority');
+	
+			displayProject(profile.getSelection());
+		}
+
+		// user clicked the sort by priority (highest at bottom) button
+		if (event.target.matches('#sortDown')) {
+			profile.getSelection().sortBy('priority', true);
+	
+			displayProject(profile.getSelection());
+		}
+
 	}, false);
 
 

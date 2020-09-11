@@ -73,7 +73,8 @@ const Project = () => {
 		return complete;
 	}
 
-	const sortBy = (sortType) => {
+	// if reverse is set to true, then the default sorting is reversed
+	const sortBy = (sortType, reverse) => {
 		if (sortType === 'title') {
 			itemList.sort(function(x, y) {
 				let xTit = x.getTitle();
@@ -106,14 +107,19 @@ const Project = () => {
 
 		else if (sortType === 'priority') {
 			itemList.sort(function(x, y) {
-				let xPrio = x.getPriority();
-				let yPrio = y.getPriority();
+				let xPrio = x.getPriorityVal();
+				let yPrio = y.getPriorityVal();	
+			
+				if (reverse) {
+					xPrio = xPrio * -1;
+					yPrio = yPrio * -1;
+				}
 
 				if (xPrio < yPrio) {
-					return -1;
+					return 1;
 				}
 				if (xPrio > yPrio) {
-					return 1;
+					return -1;
 				}
 				return 0;
 			});

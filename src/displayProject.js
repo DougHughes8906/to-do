@@ -17,6 +17,31 @@ const displayProject = (proj) => {
 
 	contentDiv.appendChild(titleElem);	
 
+	// if there are two or more items, create the ability to sort by
+	// priority
+	if (proj.getNumItems() >= 2) {
+		let sortDiv = document.createElement('div');
+		sortDiv.id = 'sortDiv';
+
+		let sortDesc = document.createElement('span');
+		sortDesc.appendChild(document.createTextNode('Sort by priority: '));
+		sortDiv.appendChild(sortDesc);
+
+		let sortUp = document.createElement('span');
+		sortUp.innerHTML = 'Highest &#8593;';
+		sortUp.classList.add('sortBtn');
+		sortUp.id = 'sortUp';	
+		sortDiv.appendChild(sortUp);
+
+		let sortDown = document.createElement('span');
+		sortDown.innerHTML = 'Highest &#8595;';
+		sortDown.classList.add('sortBtn');
+		sortDown.id = 'sortDown';
+		sortDiv.appendChild(sortDown);
+	
+		contentDiv.appendChild(sortDiv);	
+	}
+
 	// create a div that will hold all of the items for the project
 	let itemContainer = document.createElement('div');
 

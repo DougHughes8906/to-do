@@ -4,6 +4,7 @@ const Item = (creationOrder) => {
 	let description = '';
 	let dueDate = '';	
 	let priority = '';
+	let priorityVal = 0;
 	let complete = false;
 	// for use by a project object to track the order in which this
 	// item was created among all items in the project
@@ -22,7 +23,21 @@ const Item = (creationOrder) => {
 	}
 
 	const changePriority = (newPriority) => {
-		priority = newPriority;	
+		priority = newPriority;
+
+		// translate the priority to a numeric value
+		if (priority === '') {
+			priorityVal = 0;
+		}	
+		else if (priority === 'Low') {
+			priorityVal = 1;
+		}
+		else if (priority === 'Medium') {
+			priorityVal = 2;
+		}
+		else {
+			priorityVal = 3;
+		}
 	}
 
 	const setComplete = () => {
@@ -49,6 +64,10 @@ const Item = (creationOrder) => {
 		return priority;
 	}
 
+	const getPriorityVal = () => {
+		return priorityVal;
+	}
+
 	const isComplete = () => {
 		return complete;
 	}
@@ -59,7 +78,7 @@ const Item = (creationOrder) => {
 
 	return {changeTitle, changeDesc, changeDueDate, changePriority, setComplete, 
 		setIncomplete, getTitle, getDescription, getDueDate, getPriority, 
-		isComplete, getOrder}
+		getPriorityVal, isComplete, getOrder}
 };
 
 
