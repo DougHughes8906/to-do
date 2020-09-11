@@ -83,6 +83,7 @@ h1 {
 
 .itemTitle {
 	padding: 5px;
+	border-radius: 4px;
 }
 
 .Low {
@@ -191,4 +192,26 @@ h1 {
 
 .openAddItem {
 	margin-top: 12px;
+}
+
+#sortDiv {
+	margin-bottom: 13px;
+	font-size: 13px;
+}
+
+.sortBtn {
+	margin: 0px 5px 0px 5px;
+	border: 1px solid black;	
+	padding: 1px;
+	border-radius: 2px;
+}
+
+.sortBtnOff {
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+}
+
+.sortBtnOn {
+	background-color: #86caf7;
+	font-weight: bold;	
 }

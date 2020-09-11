@@ -16,6 +16,11 @@ const Project = () => {
 
 	// used to track the order of creation for items
 	let createCount = 0;
+
+	// tracks how the project items are currently sorted
+	let sortType = 'creationOrder';
+	// holds false if "largest" come first
+	let sortDirection = false;
 	
 	const addItem = () => {	
 		itemList.push(Item(createCount));
@@ -74,8 +79,8 @@ const Project = () => {
 	}
 
 	// if reverse is set to true, then the default sorting is reversed
-	const sortBy = (sortType, reverse) => {
-		if (sortType === 'title') {
+	const sortBy = (sortT, reverse) => {
+		if (sortT === 'title') {
 			itemList.sort(function(x, y) {
 				let xTit = x.getTitle();
 				let yTit = y.getTitle();
@@ -90,7 +95,7 @@ const Project = () => {
 			});
 		}
 		
-		else if (sortType === 'due date') {
+		else if (sortT === 'due date') {
 			itemList.sort(function(x, y) {
 				let xDD = x.getDueDate();
 				let yDD = y.getDueDate();
@@ -105,7 +110,7 @@ const Project = () => {
 			});
 		}
 
-		else if (sortType === 'priority') {
+		else if (sortT === 'priority') {
 			itemList.sort(function(x, y) {
 				let xPrio = x.getPriorityVal();
 				let yPrio = y.getPriorityVal();	
@@ -139,7 +144,10 @@ const Project = () => {
 				}
 				return 0;
 			});
-		}	
+		}
+
+		sortType = sortT;
+		sortDirection = reverse;	
 	};
 
 	const filterByComplete = () => {
@@ -170,10 +178,14 @@ const Project = () => {
 	const getNumItems = () => {
 		return itemList.length;
 	};
+
+	const isSorted = (sortT, sortD) => {
+		return (sortType === sortT && sortDirection === sortD);
+	}
 	
 	return {addItem, removeItem, completeItem, incompleteItem, isComplete, 
 		sortBy, filterByComplete, filterByIncomplete, getTitle,
-		changeTitle, getItem, getNumItems};
+		changeTitle, getItem, getNumItems, isSorted};
 };
 
 export default Project

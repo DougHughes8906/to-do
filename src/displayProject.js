@@ -30,12 +30,24 @@ const displayProject = (proj) => {
 		let sortUp = document.createElement('span');
 		sortUp.innerHTML = 'Highest &#8593;';
 		sortUp.classList.add('sortBtn');
+		if (proj.isSorted('priority', false)) {
+			sortUp.classList.add('sortBtnOn');
+		}
+		else {
+			sortUp.classList.add('sortBtnOff');
+		}
 		sortUp.id = 'sortUp';	
 		sortDiv.appendChild(sortUp);
 
 		let sortDown = document.createElement('span');
 		sortDown.innerHTML = 'Highest &#8595;';
 		sortDown.classList.add('sortBtn');
+		if (proj.isSorted('priority', true)) {
+			sortDown.classList.add('sortBtnOn');
+		}
+		else {
+			sortDown.classList.add('sortBtnOff');
+		}
 		sortDown.id = 'sortDown';
 		sortDiv.appendChild(sortDown);
 	

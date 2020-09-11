@@ -188,15 +188,25 @@ const addEventDelegator = (profile) => {
 
 		// user clicked the sort by priority (highest at top) button
 		if (event.target.matches('#sortUp')) {
-			profile.getSelection().sortBy('priority');
+			if (event.target.classList[1] === 'sortBtnOff') {
+				profile.getSelection().sortBy('priority', false);
+			}
+			else {
+				profile.getSelection().sortBy('creationOrder');	
+			}
 	
 			displayProject(profile.getSelection());
 		}
 
 		// user clicked the sort by priority (highest at bottom) button
 		if (event.target.matches('#sortDown')) {
-			profile.getSelection().sortBy('priority', true);
-	
+			if (event.target.classList[1] === 'sortBtnOff') {
+				profile.getSelection().sortBy('priority', true);
+			}
+			else {
+				profile.getSelection().sortBy('creationOrder');
+			}
+				
 			displayProject(profile.getSelection());
 		}
 
