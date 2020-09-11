@@ -31,7 +31,8 @@ const displayProject = (proj) => {
 		itemDiv.classList.add('itemContainer');
 
 		// add a checkbox for the item
-		let itemCheckDiv = document.createElement('div');
+		let itemCheckDiv = document.createElement('label');
+		itemCheckDiv.classList.add('checkContainer');
 		let itemCheckbox = document.createElement('input');
 		itemCheckbox.setAttribute('type', 'checkbox');
 		itemCheckbox.classList.add('itemCheck');
@@ -40,6 +41,9 @@ const displayProject = (proj) => {
 			itemCheckbox.checked = true;
 		}
 		itemCheckDiv.appendChild(itemCheckbox);
+		let checkMark = document.createElement('span');
+		checkMark.classList.add('checkmark');
+		itemCheckDiv.appendChild(checkMark);
 		
 		itemDiv.appendChild(itemCheckDiv);
 

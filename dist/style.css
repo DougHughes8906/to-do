@@ -28,7 +28,11 @@ h1 {
 
 .itemContainer {
 	display: grid;
-	grid-template-columns: 30px 1fr 1fr;	
+	grid-template-columns: 50px 1fr 1fr;
+	margin-bottom: 5px;
+	height: 28px;
+	align-items: center;
+	justify-items: center;	
 }
 
 .addItem {
@@ -78,11 +82,11 @@ h1 {
 }
 
 .Low {
-	background-color: green;
+	background-color: #a2f2c3;
 }
 
 .Medium {
-	background-color: yellow;
+	background-color: #f7ff85;
 }
 
 .High {
@@ -92,12 +96,88 @@ h1 {
 .delete {
 	text-align: center;
 	margin-left: 10px;
-	border: 1px solid black;
-	background-color: red;
-	width: 20px;
+	border: 1px solid #d62424;
+	background-color: white;
+	width: 14px;
 	border-radius: 7px;
+	font-size: 11px;
+	color: #d62424;
 }
 
 #projTitleInput {
 	display: block;
+}
+
+.checkContainer {
+	display: block;
+	position: relative;
+	margin: auto;
+	cursor: pointer;
+	font-size: 22px;
+	line-height: 24px;
+	height: 24px;
+	width: 24px;
+	clear: both;	
+}
+
+.checkContainer input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;	
+}
+
+.checkContainer .checkmark {
+	position: absolute;
+ 	top: 0px;
+	left: 0px;
+	height: 24px;
+	width: 24px;
+	background-color: transparent;
+	border-radius: 12px;
+	border: 2px solid #d62424;	
+}
+
+.checkContainer .checkmark::after {
+	position: absolute;
+	content: "";
+	left: 12px;
+	top: 12px;
+	height: 0px;
+	width: 0px;
+	border-radius: 5px;
+	border: solid #009BFF;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(0deg) scale(0);
+	-ms-transform: rotate(0deg) scale(0);
+	transform: rotate(0deg) scale(0);
+	opacity: 1;
+}
+
+.checkContainer input:checked ~ .checkmark {
+	background-color: #FFFFFF;	
+	-webkit-transform: rotate(0deg) scale(1);
+	-ms-transform: rotate(0deg) scale(1);
+	transform: rotate(0deg) scale(1);
+	opacity: 1;
+	border: 2px solid black;
+	border-radius: 12px;
+}
+
+.checkContainer input:checked ~ .checkmark::after {
+	-webkit-transform: rotate(45deg) scale(1);
+	-ms-transform: rotate(45deg) scale(1);
+	transform: rotate(45deg) scale(1);
+	opacity: 1;
+	left: 8px;
+	top: 3px;
+	width: 6px;
+	height: 12px;
+	border: solid #43cf27;
+	border-width: 0 2px 2px 0;
+	background-color: transparent;
+	border-radius: 0;
+}
+
+.openAddItem {
+	margin-top: 12px;
 }
