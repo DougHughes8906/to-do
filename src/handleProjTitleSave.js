@@ -6,8 +6,10 @@ const handleProjTitleSave = (profile) => {
 	// get the value of the new title from the input element
 	let newVal = document.getElementById('projTitleInput').value;
 
-	// if the new title is empty, reject it by not changing the title
-	if (newVal === "") {
+	let trimmedVal = newVal.trim();	
+	
+	// if the new title is all whitespace or empty, keep the input open
+	if (trimmedVal === "") {
 		return;
 	}
 
