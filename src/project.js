@@ -27,12 +27,15 @@ const Project = () => {
 		createCount++;
 	};
 
+	// this method should only be used on completed items (otherwise
+	// the numComplete count will be inaccurate)
 	const removeItem = (itemIndex) => {
 		if (itemIndex < 0 || itemIndex >= itemList.length) {
 			console.log(`Index ${itemIndex} is not a valid index of the item list`);
 		}
 		else {
 			itemList.splice(itemIndex, 1);
+			numComplete--;
 		}
 	};
 
@@ -182,10 +185,21 @@ const Project = () => {
 	const isSorted = (sortT, sortD) => {
 		return (sortType === sortT && sortDirection === sortD);
 	}
+
+	const removeAllComplete = () => {
+		itemList = itemList.filter(item => !(item.isComplete()));
+
+		numComplete = 0;
+	}
+
+	const hasComplete = () => {
+		return (numComplete > 0); 
+	}
 	
 	return {addItem, removeItem, completeItem, incompleteItem, isComplete, 
 		sortBy, filterByComplete, filterByIncomplete, getTitle,
-		changeTitle, getItem, getNumItems, isSorted};
+		changeTitle, getItem, getNumItems, isSorted, removeAllComplete,
+		hasComplete};
 };
 
 export default Project

@@ -36,15 +36,13 @@ const addEventDelegator = (profile) => {
 			// the check ids are in the format 'checkXXXX'
 			itemId = parseInt(itemId.slice(5));
 
-			profile.selectItem(itemId);
-
-			let curItem = profile.getItemSelection();
+			let curProj = profile.getSelection();		
 
 			if (event.target.checked) {
-				curItem.setComplete();
+				curProj.completeItem(itemId);
 			}
 			else {
-				curItem.setIncomplete();
+				curProj.incompleteItem(itemId);
 			}
 
 			displayProject(profile.getSelection());			
@@ -144,17 +142,31 @@ const addEventDelegator = (profile) => {
 			// set the elements of the content div back in the correct order
 			let sortDiv = document.getElementById('sortDiv');
 			let itemsDiv = document.getElementsByClassName('itemsDiv')[0];
+			let removeDiv = document.getElementById('removeAllComplete');
 
+			while (parentDiv.firstChild) {
+				parentDiv.removeChild(parentDiv.lastChild);
+			}
+
+/*
 			if (sortDiv !== null) {
 				parentDiv.removeChild(sortDiv);
 			}
 			parentDiv.removeChild(itemsDiv);
+			if (removeDiv !== null) {
+				parentDiv.removeChild(removeDiv);
+			}
+*/
 
 			parentDiv.appendChild(projTitleInput);
 			if (sortDiv !== null) {
 				parentDiv.appendChild(sortDiv);
 			}
 			parentDiv.appendChild(itemsDiv);
+			if (removeDiv !== null) {
+				parentDiv.appendChild(document.createElement('br'));
+				parentDiv.appendChild(removeDiv);
+			}
 
 			// give the input element focus
 			projTitleInput.focus();
@@ -214,6 +226,13 @@ const addEventDelegator = (profile) => {
 				profile.getSelection().sortBy('creationOrder');
 			}
 				
+			displayProject(profile.getSelection());
+		}
+
+		// user clicked the remove all completed items button
+		if (event.target.matches('#removeAllComplete')) {
+			profile.getSelection().removeAllComplete();
+
 			displayProject(profile.getSelection());
 		}
 

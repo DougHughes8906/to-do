@@ -129,6 +129,16 @@ const displayProject = (proj) => {
 
 	// add the itemContainer to the Content div
 	contentDiv.appendChild(itemContainer);
+
+	// if there are any completed items, add a button to remove
+	// all completed items
+	if (proj.hasComplete()) {
+		contentDiv.appendChild(document.createElement('br'));	
+		let removeAllBtn = document.createElement('div');
+		removeAllBtn.id = 'removeAllComplete';
+		removeAllBtn.appendChild(document.createTextNode('Remove all completed'));
+		contentDiv.appendChild(removeAllBtn);	
+	}
 };
 
 export default displayProject
