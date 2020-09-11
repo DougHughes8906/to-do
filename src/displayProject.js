@@ -95,6 +95,11 @@ const displayProject = (proj) => {
 		itemTitleDiv.appendChild(document.createTextNode(curItem.getTitle()));
 		itemTitleDiv.id = 'item' + i;
 		itemTitleDiv.classList.add('itemTitle');
+		// if the item title is blank, style appropriately so it can still
+		// be clicked
+		if (curItem.getTitle().trim() === '') {
+			itemTitleDiv.classList.add('blankTitle');
+		}
 		if (curItem.getPriority() !== '') {
 			itemTitleDiv.classList.add(curItem.getPriority());
 		}
