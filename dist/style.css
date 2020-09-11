@@ -108,8 +108,15 @@ h1 {
 	color: #d62424;
 }
 
+#projTitle {
+	font-size: 24px;
+	margin: 20px 0 20px 0;
+}
+
 #projTitleInput {
 	display: block;
+	font-size: 24px;
+	margin: 20px 0 20px 0;
 }
 
 .checkContainer {
