@@ -141,12 +141,19 @@ const addEventDelegator = (profile) => {
 			projTitleInput.id = 'projTitleInput';
 			projTitleInput.value = curVal;
 
-			// reset the content div to include the input element
+			// set the elements of the content div back in the correct order
+			let sortDiv = document.getElementById('sortDiv');
 			let itemsDiv = document.getElementsByClassName('itemsDiv')[0];
 
+			if (sortDiv !== null) {
+				parentDiv.removeChild(sortDiv);
+			}
 			parentDiv.removeChild(itemsDiv);
 
 			parentDiv.appendChild(projTitleInput);
+			if (sortDiv !== null) {
+				parentDiv.appendChild(sortDiv);
+			}
 			parentDiv.appendChild(itemsDiv);
 
 			// give the input element focus
