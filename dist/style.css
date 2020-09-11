@@ -81,6 +81,10 @@ h1 {
 	border: 1px solid black;
 }
 
+.itemTitle {
+	padding: 5px;
+}
+
 .Low {
 	background-color: #a2f2c3;
 }
@@ -90,7 +94,7 @@ h1 {
 }
 
 .High {
-	background-color: red;
+	background-color: #fc5858;
 }
 
 .delete {
