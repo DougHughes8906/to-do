@@ -195,11 +195,28 @@ const Project = () => {
 	const hasComplete = () => {
 		return (numComplete > 0); 
 	}
+
+	const getNumComplete = () => {
+		return numComplete;
+	}
+
+	const getCreateCount = () => {
+		return createCount;
+	}
+
+	const getSortType = () => {
+		return sortType;
+	}
+
+	const getSortDirection = () => {
+		return sortDirection;
+	}
 	
 	return {addItem, removeItem, completeItem, incompleteItem, isComplete, 
 		sortBy, filterByComplete, filterByIncomplete, getTitle,
 		changeTitle, getItem, getNumItems, isSorted, removeAllComplete,
-		hasComplete};
+		hasComplete, getNumComplete, getCreateCount, getSortType,
+		getSortDirection};
 };
 
 export default Project

@@ -5,6 +5,7 @@ import saveItemInput from './saveItemInput'
 import clearItemInputs from './clearItemInputs'
 import {updateItemInfo, addItemInfo} from './enterItemInfo'
 import handleProjTitleSave from './handleProjTitleSave'
+import storeContent from './storeContent'
 
 // adds the listening functionality for all events on the page
 
@@ -148,16 +149,6 @@ const addEventDelegator = (profile) => {
 				parentDiv.removeChild(parentDiv.lastChild);
 			}
 
-/*
-			if (sortDiv !== null) {
-				parentDiv.removeChild(sortDiv);
-			}
-			parentDiv.removeChild(itemsDiv);
-			if (removeDiv !== null) {
-				parentDiv.removeChild(removeDiv);
-			}
-*/
-
 			parentDiv.appendChild(projTitleInput);
 			if (sortDiv !== null) {
 				parentDiv.appendChild(sortDiv);
@@ -236,8 +227,11 @@ const addEventDelegator = (profile) => {
 			displayProject(profile.getSelection());
 		}
 
-	}, false);
+		// no matter what action is taken, save the profile data to local
+		// storage
+		storeContent(profile);
 
+	}, false);
 
 
 	// listen for all key events
@@ -272,6 +266,10 @@ const addEventDelegator = (profile) => {
 				handleProjTitleSave(profile); 
 			}
 		}
+
+		// no matter what action is taken, store the profile data
+		// to local storage
+		storeContent(profile);
 	}, false);
 
 };

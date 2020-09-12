@@ -128,11 +128,19 @@ const Profile = () => {
 	const removeItem = (index) => {
 		projectList[selectedIndex].removeItem(index);	
 	}
+
+	const getSelectIndex = () => {
+		return selectedIndex;
+	}
+
+	const getItemIndex = () => {
+		return itemIndex;
+	}
 	
 	return {addProject, removeProject, getHomeIndex, setHomeIndex, getProject,
 		selectProject, getSelection, selectItem, getItemSelection, setAddItem,
 		getAddItem, setUpdateItem, getUpdateItem, projTitleActive, 
-		setProjTitleActive, getNumProjects, removeItem};
+		setProjTitleActive, getNumProjects, removeItem, getSelectIndex};
 };
 
 export default Profile

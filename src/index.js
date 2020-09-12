@@ -6,7 +6,11 @@ import displayProject from './displayProject'
 import addEventDelegator from './addEventDelegator'
 
 // get the previously saved content (if any)
-let userProfile = getStoredContent();
+//let userProfile = getStoredContent();
+
+let userProfile = null;
+
+console.log(userProfile);
 
 // if no saved data, create a new profile
 if (userProfile === null) {
