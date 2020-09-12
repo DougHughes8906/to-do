@@ -12,7 +12,7 @@ const ProfileData = () => {
 	let updateItemStatus = false;
 	let projTitleStatus = false;
 
-	return {projectList, homeIndex, selectedIndex, itemIndex, addItemStatus,
+	return {projectDataList, homeIndex, selectedIndex, itemIndex, addItemStatus,
 		updateItemStatus, projTitleStatus};
 };
 

@@ -140,7 +140,8 @@ const Profile = () => {
 	return {addProject, removeProject, getHomeIndex, setHomeIndex, getProject,
 		selectProject, getSelection, selectItem, getItemSelection, setAddItem,
 		getAddItem, setUpdateItem, getUpdateItem, projTitleActive, 
-		setProjTitleActive, getNumProjects, removeItem, getSelectIndex};
+		setProjTitleActive, getNumProjects, removeItem, getSelectIndex,
+		getItemIndex};
 };
 
 export default Profile
