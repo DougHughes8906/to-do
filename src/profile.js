@@ -35,7 +35,7 @@ const Profile = () => {
 		}
 
 		return projectList[projectList.length - 1];
-	};
+	};	
 
 	const removeProject = (index) => {
 		if (index < 0 || index >= projectList.length) {
@@ -136,12 +136,18 @@ const Profile = () => {
 	const getItemIndex = () => {
 		return itemIndex;
 	}
+
+	// functions for existing data from localStorage
+
+	const addExistingProject = (project) => {
+		projectList.push(project);
+	};
 	
 	return {addProject, removeProject, getHomeIndex, setHomeIndex, getProject,
 		selectProject, getSelection, selectItem, getItemSelection, setAddItem,
 		getAddItem, setUpdateItem, getUpdateItem, projTitleActive, 
 		setProjTitleActive, getNumProjects, removeItem, getSelectIndex,
-		getItemIndex};
+		getItemIndex, addExistingProject};
 };
 
 export default Profile

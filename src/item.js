@@ -76,9 +76,13 @@ const Item = (creationOrder) => {
 		return order;
 	}
 
+	const setOrder = (newOrder) => {
+		order = newOrder;
+	}
+
 	return {changeTitle, changeDesc, changeDueDate, changePriority, setComplete, 
 		setIncomplete, getTitle, getDescription, getDueDate, getPriority, 
-		getPriorityVal, isComplete, getOrder}
+		getPriorityVal, isComplete, getOrder, setOrder}
 };
 
 

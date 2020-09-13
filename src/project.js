@@ -27,6 +27,11 @@ const Project = () => {
 		createCount++;
 	};
 
+	// used for adding existing items from localStorage
+	const addExistingItem = (item) => {
+		itemList.push(item);
+	};
+
 	// this method should only be used on completed items (otherwise
 	// the numComplete count will be inaccurate)
 	const removeItem = (itemIndex) => {
@@ -211,12 +216,34 @@ const Project = () => {
 	const getSortDirection = () => {
 		return sortDirection;
 	}
+
+	// functions for setting data from localStorage
+	const setComplete = (completeVal) => {
+		complete = completeVal;
+	}
+
+	const setNumComplete = (numComp) => {
+		numComplete = numComp;
+	}
+
+	const setCreateCount = (ccount) => {
+		createCount = ccount;
+	}
+
+	const setSortType = (type) => {
+		sortType = type;
+	}
+
+	const setSortDirection = (direction) => {
+		sortDirection = direction;
+	}
 	
-	return {addItem, removeItem, completeItem, incompleteItem, isComplete, 
-		sortBy, filterByComplete, filterByIncomplete, getTitle,
+	return {addItem, addExistingItem, removeItem, completeItem, incompleteItem, 
+		isComplete, sortBy, filterByComplete, filterByIncomplete, getTitle,
 		changeTitle, getItem, getNumItems, isSorted, removeAllComplete,
 		hasComplete, getNumComplete, getCreateCount, getSortType,
-		getSortDirection};
+		getSortDirection, setComplete, setNumComplete, setCreateCount,
+		setSortType, setSortDirection};
 };
 
 export default Project
