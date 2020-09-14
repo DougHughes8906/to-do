@@ -19,17 +19,20 @@ const setupPage = () => {
 	let homeDiv = document.createElement('div');
 	homeDiv.appendChild(document.createTextNode('Home'));
 	homeDiv.id = 'NavHome';
+	homeDiv.classList.add('navItem');
 	navDiv.appendChild(homeDiv);
 
 	let projDiv = document.createElement('div');
 	projDiv.appendChild(document.createTextNode('Projects'));
 	projDiv.id = 'NavProjects';
+	projDiv.classList.add('navItem');
 	navDiv.appendChild(projDiv);
 
 	let newProjDiv = document.createElement('div');
 	newProjDiv.appendChild(document.createTextNode('New Project'));
 	newProjDiv.id = 'NavNewProject';
 	newProjDiv.classList.add('openAddProject');
+	newProjDiv.classList.add('navItem');
 	navDiv.appendChild(newProjDiv);
 
 	let empDiv2 = document.createElement('div');
