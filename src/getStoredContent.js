@@ -9,7 +9,12 @@ const getStoredContent = () => {
 	let parsedData = JSON.parse(localStorage.getItem('userData')); 	
 
 	// convert to a profile object
-	return profileFromData(parsedData);	
+	if (parsedData !== null) {
+		return profileFromData(parsedData);	
+	}
+	else {
+		return null;
+	}
 };
 
 export default getStoredContent
