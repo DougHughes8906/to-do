@@ -5,3 +5,5 @@ Users can save various pieces of information about individual items and set the 
 Items can be marked complete. Once marked complete those items can be removed from the project or be marked back to incomplete. 
 
 The title for any project can be modified by clicking on the title when that project is being viewed. Any items information can be updated by clicking on the title of the item. 
+
+User data is stored on localStorage so it can only be accessed when using the same computer / device. 
