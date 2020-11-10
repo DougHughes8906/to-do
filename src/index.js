@@ -18,11 +18,11 @@ if (userProfile === null) {
 // set up the outer frame for the page
 setupPage();
 
-// get the home project
-let homeProject = userProfile.getProject(userProfile.getHomeIndex());
+// get the last selected project
+let curProject = userProfile.getSelection();
 
 // add the home project to the page
-displayProject(homeProject);
+displayProject(curProject);
 
 // add the event delegator
 addEventDelegator(userProfile);
