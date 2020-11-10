@@ -29,8 +29,8 @@ h1 {
 
 .itemContainer, .projectLine {
 	display: grid;
-	grid-template-columns: 50px 1fr 1fr;
-	margin-bottom: 5px;
+	grid-template-columns: 50px 1fr 0.5fr;
+	margin-bottom: 18px;
 	height: 28px;
 	align-items: center;
 	justify-items: center;	
