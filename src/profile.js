@@ -7,6 +7,10 @@ const Profile = () => {
 
 	let projectList = [];
 
+	// data for the projects list page, holds whether or not
+	// a given project is checked
+	let projChecked = [];
+
 	// the index of the project that will be displayed on the home page
 	let homeIndex = -1;
 
@@ -27,8 +31,13 @@ const Profile = () => {
 	// edited
 	let projTitleStatus = false;
 
+	// holds the number of currently selected projects on the projects list
+	// page
+	let numSelected = 0;
+
 	const addProject = () => {
 		projectList.push(Project());
+		projChecked.push(false);
 		if (projectList.length === 1) {
 			homeIndex = 0;
 			selectedIndex = 0;
@@ -43,6 +52,7 @@ const Profile = () => {
 		}
 		else {
 			projectList.splice(index, 1);
+			projChecked.splice(index, 1);
 		}
 	};
 	
@@ -137,17 +147,72 @@ const Profile = () => {
 		return itemIndex;
 	}
 
+	const incNumSelected = () => {
+		numSelected = numSelected + 1;
+	}
+
+	const decNumSelected = () => {
+		numSelected = numSelected - 1;
+	}
+
+	const resetNumSelected = () => {
+		numSelected = 0;
+	}
+
+	const getNumSelected = () => {
+		return numSelected;
+	}
+
 	// functions for existing data from localStorage
 
 	const addExistingProject = (project) => {
 		projectList.push(project);
 	};
+
+	// functions for checking / unchecking projects on the projects
+	// list page
+	const checkProj = (index) => {
+		if (index < 0 || index >= projChecked.length) {
+			console.log(`Index ${index} is not a valid index of the project list`);
+		}
+		else {
+			projChecked[index] = true;		
+		}
+	};
+
+	const uncheckProj = (index) => {
+		if (index < 0 || index >= projChecked.length) {
+			console.log(`Index ${index} is not a valid index of the project list`);
+		}
+		else {
+			projChecked[index] = false;		
+		}
+	};
+
+	const projIsChecked = (index) => {
+		if (index < 0 || index >= projChecked.length) {
+			console.log(`Index ${index} is not a valid index of the project list`);
+		}
+		else {
+			return projChecked[index];
+		}	
+	};
+
+	const getProjCheckList = () => {
+		return projChecked;
+	};
+
+	const setProjCheckedList = (checkedList) => {
+		projChecked = checkedList;
+	}
 	
 	return {addProject, removeProject, getHomeIndex, setHomeIndex, getProject,
 		selectProject, getSelection, selectItem, getItemSelection, setAddItem,
 		getAddItem, setUpdateItem, getUpdateItem, projTitleActive, 
 		setProjTitleActive, getNumProjects, removeItem, getSelectIndex,
-		getItemIndex, addExistingProject};
+		getItemIndex, incNumSelected, decNumSelected, 
+		resetNumSelected, addExistingProject, checkProj, uncheckProj, 
+		projIsChecked, getProjCheckList, setProjCheckedList};
 };
 
 export default Profile

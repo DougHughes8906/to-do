@@ -57,6 +57,7 @@ const profileToData = (profile) => {
 		newProfileData.projectDataList.push(projectToData(nextProject));
 	}	
 
+	newProfileData.projectCheckList = profile.getProjCheckList();
 	newProfileData.homeIndex = profile.getHomeIndex();
 	newProfileData.selectedIndex = profile.getSelectIndex();
 	newProfileData.itemIndex = profile.getItemIndex();

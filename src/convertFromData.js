@@ -58,6 +58,7 @@ const profileFromData = (profileData) => {
 		newProfile.addExistingProject(newProject);
 	}
 
+	newProfile.setProjCheckedList(profileData.projectCheckList);
 	newProfile.setHomeIndex(profileData.homeIndex);
 	newProfile.selectProject(profileData.selectedIndex);
 	newProfile.selectItem(profileData.itemIndex);

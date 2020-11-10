@@ -23,7 +23,7 @@ const addEventDelegator = (profile) => {
 		}
 
 		// user wants to add a new item to the project
-		if (event.target.matches('.openAddItem')) {
+		if (event.target.matches('.openAddItem')) {	
 			// indicate that an item is being added
 			profile.setAddItem();
 			// open modal window to add the item
@@ -48,6 +48,24 @@ const addEventDelegator = (profile) => {
 
 			displayProject(profile.getSelection());			
 		}
+
+		// user has clicked the check next to a project in 
+    // the projects list page
+    if (event.target.matches('.projCheck')) {
+      // get the index for the project
+      let projId = event.target.id;
+      // the check ids are in the format 'projcheckXXX'
+      projId = parseInt(projId.slice(9));
+
+      if (event.target.checked) {
+        profile.checkProj(projId);
+      }
+      else {
+        profile.uncheckProj(projId);
+      }
+
+      displayProjList(profile);
+    }	
 
 		// user is deleting an item
 		if (event.target.matches('.delete')) {
@@ -185,6 +203,10 @@ const addEventDelegator = (profile) => {
 
 		// user navigated to the projects list page
 		if (event.target.matches('#NavProjects')) {
+			// reset the number of selected projects from the last time
+			// this page was visited
+			profile.resetNumSelected();
+
 			displayProjList(profile);
 		}	
 

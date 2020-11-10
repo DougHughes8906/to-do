@@ -31,6 +31,23 @@ const displayProjList = (profile) => {
 		let projDiv = document.createElement('div');
 		projDiv.classList.add('projectLine');	
 
+		// add a checkbox for the project
+		let projCheckDiv = document.createElement('label');
+		projCheckDiv.classList.add('checkContainer');
+		let projCheckbox = document.createElement('input');
+		projCheckbox.setAttribute('type', 'checkbox');
+		projCheckbox.classList.add('projCheck');
+		projCheckbox.id = 'projcheck' + i;
+		if (profile.projIsChecked(i)) {
+			projCheckbox.checked = true;
+		}	
+		projCheckDiv.appendChild(projCheckbox);
+		let checkMark = document.createElement('span');
+		checkMark.classList.add('checkmark');
+		projCheckDiv.appendChild(checkMark);
+		
+		projDiv.appendChild(projCheckDiv);
+
 		// add the title for the project
 		let projTitleDiv = document.createElement('div');
 		projTitleDiv.appendChild(document.createTextNode(curProj.getTitle()));
@@ -47,6 +64,7 @@ const displayProjList = (profile) => {
 	let addProject = document.createElement('div');
 	addProject.appendChild(document.createTextNode('+ Add Project'));
 	addProject.classList.add('openAddProject');
+	addProject.classList.add('addProjBtn');
 	projContainer.appendChild(addProject);	
 
 	// add the projContainer to the Content div
