@@ -23,6 +23,9 @@ const displayProjList = (profile) => {
 
 	// add rows for each of the projects in the profile
 	let numItems = profile.getNumProjects();
+	// will hold true if any of the projects are checked, in which
+	// case a button will be added to delete the projects
+	let checkPresent = false;
 
 	for (let i = 0; i < numItems; i++) {
 		// get the next project
@@ -40,6 +43,7 @@ const displayProjList = (profile) => {
 		projCheckbox.id = 'projcheck' + i;
 		if (profile.projIsChecked(i)) {
 			projCheckbox.checked = true;
+			checkPresent = true;
 		}	
 		projCheckDiv.appendChild(projCheckbox);
 		let checkMark = document.createElement('span');
@@ -69,6 +73,16 @@ const displayProjList = (profile) => {
 
 	// add the projContainer to the Content div
 	contentDiv.appendChild(projContainer);
+
+	// if any of the projects are checked, add a button to 
+	// delete the checked projects
+	if (checkPresent) {
+		contentDiv.appendChild(document.createElement('br'));
+		let removeProjBtn = document.createElement('div');
+		removeProjBtn.id = 'removeProjBtn';
+		removeProjBtn.appendChild(document.createTextNode('Remove all selected'));
+		contentDiv.appendChild(removeProjBtn);
+	}
 };
 
 export default displayProjList

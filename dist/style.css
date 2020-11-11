@@ -227,7 +227,7 @@ h1 {
 	height: 70%;
 }
 
-#removeAllComplete {
+#removeAllComplete, #removeProjBtn {
 	margin-top: 20px;
 	display: inline-block;
 	font-size: 13px;
