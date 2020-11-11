@@ -204,7 +204,18 @@ const Profile = () => {
 
 	const setProjCheckedList = (checkedList) => {
 		projChecked = checkedList;
-	}
+	};
+
+	const removeSelectedProjects = () => {
+		let i = 0;
+		while (i < projChecked.length) {
+			if (projChecked[i]) {
+				removeProject(i);
+				i--;
+			}	
+			i++;
+		}	
+	};
 	
 	return {addProject, removeProject, getHomeIndex, setHomeIndex, getProject,
 		selectProject, getSelection, selectItem, getItemSelection, setAddItem,
@@ -212,7 +223,8 @@ const Profile = () => {
 		setProjTitleActive, getNumProjects, removeItem, getSelectIndex,
 		getItemIndex, incNumSelected, decNumSelected, 
 		resetNumSelected, addExistingProject, checkProj, uncheckProj, 
-		projIsChecked, getProjCheckList, setProjCheckedList};
+		projIsChecked, getProjCheckList, setProjCheckedList,
+		removeSelectedProjects};
 };
 
 export default Profile

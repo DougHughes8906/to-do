@@ -212,10 +212,17 @@ const addEventDelegator = (profile) => {
 
 		// user navigated to the home page
 		if (event.target.matches('#NavHome')) {
+			let numProj = profile.getNumProjects();
+
+			// if all projects have been deleted, add a new one
+			if (numProj === 0) {
+				profile.addProject();
+			}
+			
 			// display the home project
 			profile.selectProject(profile.getHomeIndex());	
 			let homeProj = profile.getSelection();
-			displayProject(homeProj);
+			displayProject(homeProj);	
 		}
 
 		// user clicked the sort by priority (highest at top) button
@@ -247,6 +254,13 @@ const addEventDelegator = (profile) => {
 			profile.getSelection().removeAllComplete();
 
 			displayProject(profile.getSelection());
+		}
+
+		// user clicked the remove all selected projects button
+		if (event.target.matches('#removeProjBtn')) {
+			profile.removeSelectedProjects();
+
+			displayProjList(profile);
 		}
 
 		// no matter what action is taken, save the profile data to local

@@ -14,6 +14,13 @@ if (userProfile === null) {
 	// add the first project
 	userProfile.addProject();
 }
+// ensure there is at least one active project, if not 
+// add a new project for the home page
+else {
+	if (userProfile.getNumProjects() === 0) {
+		userProfile.addProject();
+	}
+}
 
 // set up the outer frame for the page
 setupPage();
